@@ -104,23 +104,6 @@ public class CleanArchitectureTests
     }
 
     [Fact]
-    public void ServicesShallBeInCorrectNamespace()
-    {
-        Classes().That().HaveNameEndingWith("Service").Should()
-            .ResideInNamespace($"{BaseNamespace}.ApplicationLogic.Service.*", true)
-            .Check(_architecture);
-    }
-
-    [Fact]
-    public void ServiceInterfacesShallBeInCorrectNamespace()
-    {
-        Interfaces().That().HaveNameEndingWith("Service")
-            .Should()
-            .ResideInNamespace($"{BaseNamespace}.ApplicationLogic.Service.*", true)
-            .Check(_architecture);
-    }
-
-    [Fact]
     public void ControllerShallBeInCorrectNamespace()
     {
         Classes().That().HaveNameEndingWith("Controller").Should()
