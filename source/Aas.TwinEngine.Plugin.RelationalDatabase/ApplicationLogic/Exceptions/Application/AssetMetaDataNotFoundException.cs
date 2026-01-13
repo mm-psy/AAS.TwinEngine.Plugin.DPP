@@ -10,11 +10,7 @@ public class AssetMetaDataNotFoundException : NotFoundException
 
     public AssetMetaDataNotFoundException(Exception ex) : base(ServiceName, ex) { }
 
-    public AssetMetaDataNotFoundException(string message) : base(message)
-    {
-    }
-
-    public AssetMetaDataNotFoundException(string message, Exception innerException) : base(message, innerException)
+    public AssetMetaDataNotFoundException(string message) : base(ServiceName)
     {
     }
 }

@@ -10,11 +10,7 @@ public class ShellMetaDataNotFoundException : NotFoundException
 
     public ShellMetaDataNotFoundException(Exception ex) : base(ServiceName, ex) { }
 
-    public ShellMetaDataNotFoundException(string message) : base(message)
-    {
-    }
-
-    public ShellMetaDataNotFoundException(string message, Exception innerException) : base(message, innerException)
+    public ShellMetaDataNotFoundException(string message) : base(ServiceName)
     {
     }
 }

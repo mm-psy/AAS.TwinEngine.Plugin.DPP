@@ -10,11 +10,7 @@ public class SubmodelDataNotFoundException : NotFoundException
 
     public SubmodelDataNotFoundException(Exception ex) : base(ServiceName, ex) { }
 
-    public SubmodelDataNotFoundException(string message) : base(message)
-    {
-    }
-
-    public SubmodelDataNotFoundException(string message, Exception innerException) : base(message, innerException)
+    public SubmodelDataNotFoundException(string message) : base(ServiceName)
     {
     }
 }
