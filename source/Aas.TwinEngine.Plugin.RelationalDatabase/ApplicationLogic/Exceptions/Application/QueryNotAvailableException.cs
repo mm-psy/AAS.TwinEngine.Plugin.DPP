@@ -10,11 +10,7 @@ public class QueryNotAvailableException : InternalServerException
 
     public QueryNotAvailableException(Exception ex) : base(DefaultMessage, ex) { }
 
-    public QueryNotAvailableException(string message) : base(message)
-    {
-    }
-
-    public QueryNotAvailableException(string message, Exception innerException) : base(message, innerException)
+    public QueryNotAvailableException(string message) : base(DefaultMessage)
     {
     }
 }
