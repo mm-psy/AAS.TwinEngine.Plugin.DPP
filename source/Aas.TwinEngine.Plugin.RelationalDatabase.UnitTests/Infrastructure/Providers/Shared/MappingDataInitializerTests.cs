@@ -1,4 +1,5 @@
 ﻿using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Exceptions.Infrastructure;
+using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Services.Shared;
 using Aas.TwinEngine.Plugin.RelationalDatabase.Infrastructure.Providers.Shared;
 
 using Microsoft.Extensions.Hosting;
@@ -64,8 +65,6 @@ public class MappingDataInitializerTests
         var sut = new MappingDataInitializer(_env, _logger);
 
         sut.Initialize();
-
-        Assert.NotNull(MappingData.MappingJson);
-        Assert.Equal("test", MappingData.MappingJson.RootElement.GetProperty("name").GetString());
+        Assert.Equal("test", MappingData.MappingJson.GetProperty("name").GetString());
     }
 }

@@ -24,8 +24,6 @@ public static class Program
         builder.Services.ConfigureInfrastructure(builder.Configuration);
         builder.Services.ConfigureApplication();
 
-        _ = builder.Services.AddAuthorization();
-
         _ = builder.Services.AddControllers();
 
         _ = builder.Services.AddEndpointsApiExplorer();
@@ -54,7 +52,6 @@ public static class Program
 
         _ = app.UseExceptionHandler();
         _ = app.UseHttpsRedirection();
-        _ = app.UseAuthorization();
 
         app.UseCorsServices();
         _ = app.UseOpenApi(c => c.PostProcess = (d, _) => d.Servers.Clear());

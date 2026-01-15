@@ -1,4 +1,4 @@
-﻿using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Exceptions.Application;
+﻿using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Exceptions.Infrastructure;
 using Aas.TwinEngine.Plugin.RelationalDatabase.Infrastructure.DataAccess.Configuration;
 using Aas.TwinEngine.Plugin.RelationalDatabase.Infrastructure.DataAccess.ConnectionFactory;
 
@@ -67,6 +67,7 @@ public class PostgreSqlConnectionFactoryTests
         {
             ConnectionString = connectionString
         };
+
         var factory = new PostgreSqlConnectionFactory(config);
 
         var connection = factory.CreateConnection();

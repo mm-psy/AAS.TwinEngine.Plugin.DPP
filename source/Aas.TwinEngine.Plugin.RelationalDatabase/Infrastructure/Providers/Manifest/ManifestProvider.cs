@@ -2,13 +2,13 @@
 
 using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Exceptions.Infrastructure;
 using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Services.Manifest.Providers;
-using Aas.TwinEngine.Plugin.RelationalDatabase.Infrastructure.Providers.Shared;
+using Aas.TwinEngine.Plugin.RelationalDatabase.ApplicationLogic.Services.Shared;
 
 namespace Aas.TwinEngine.Plugin.RelationalDatabase.Infrastructure.Providers.Manifest;
 
 public class ManifestProvider(ILogger<ManifestProvider> logger) : IManifestProvider
 {
-    private readonly JsonDocument _mappingJson = MappingData.MappingJson;
+    private readonly JsonElement _mappingJson = MappingData.MappingJson;
     private readonly JsonSerializerOptions _jsonSerializerOptions = new() { PropertyNameCaseInsensitive = true };
 
     public IList<string> GetSupportedSemanticIds()
@@ -22,7 +22,7 @@ public class ManifestProvider(ILogger<ManifestProvider> logger) : IManifestProvi
     {
         try
         {
-            var mapping = _mappingJson.RootElement.Deserialize<List<MappingItem?>>(_jsonSerializerOptions) ?? [];
+            var mapping = _mappingJson.Deserialize<List<MappingItem?>>(_jsonSerializerOptions) ?? [];
 
             if (mapping.Count == 0)
             {
@@ -38,7 +38,6 @@ public class ManifestProvider(ILogger<ManifestProvider> logger) : IManifestProvi
                         .Where(sid => !string.IsNullOrWhiteSpace(sid))
                         .Select(sid => sid!.Trim())
                         .Distinct(StringComparer.Ordinal)];
-
         }
         catch (JsonException jex)
         {
