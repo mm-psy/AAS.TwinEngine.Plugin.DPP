@@ -13,6 +13,15 @@ updates:
         applies-to: version-updates
         update-types:
           - "minor"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 3
+      
+  - package-ecosystem: "nuget"
+    target-branch: "develop"
+    directory: "/source"
+    groups:
       patch:
         applies-to: version-updates
         update-types:
