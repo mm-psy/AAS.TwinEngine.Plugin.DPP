@@ -46,12 +46,12 @@ updates:
     groups:
       minor:
         applies-to: version-updates
-          update-types:
-            - "minor"
+        update-types:
+          - "minor"
       patch:
         applies-to: version-updates
-          update-types:
-            - "patch"
+        update-types:
+          - "patch"
     schedule:
       interval: "weekly"
     cooldown:
