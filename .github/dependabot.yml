@@ -36,21 +36,12 @@ updates:
   - package-ecosystem: "github-actions"
     target-branch: "develop"
     directory: "/"
-    # groups:
-    #   major-minor-patch:
-    #     applies-to: version-updates
-    #     update-types:
-    #       - "major"
-    #       - "minor"
-    #       - "patch"
     groups:
-      minor:
+      major-minor-patch:
         applies-to: version-updates
         update-types:
+          - "major"
           - "minor"
-      patch:
-        applies-to: version-updates
-        update-types:
           - "patch"
     schedule:
       interval: "weekly"
