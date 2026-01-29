@@ -17,7 +17,7 @@ FROM scratch AS app-sbom-artifact
 COPY --from=build /App/sbom/bom.xml /sbom_application.cyclonedx.xml
 
 # Create final image containing application
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine@sha256:a0ce42fe86548363a9602c47fc3bd4cf9c35a2705c68cd98d7ce18ae8735b83c
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine@sha256:336cc2392cfbf9c3a1720e3093f909bd402c61d2192355d616a8ce84cab5664d
 USER app
 WORKDIR /App
 COPY --from=build /App/out .
