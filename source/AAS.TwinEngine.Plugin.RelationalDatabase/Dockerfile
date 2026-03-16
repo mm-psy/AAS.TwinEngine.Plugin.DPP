@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:aa05b91be697b83229cb000b90120f0783604ad74ed92a0b45cdf3d1a9c873de AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0@sha256:1682f3cd0cb51464568de4fa88c719bd3be55539653d97540718bdd5b87062d4 AS build
 # Install CycloneDX SBOM Generator Package
 RUN dotnet tool install --global CycloneDX --version 5.5.0
 ENV PATH="$PATH:/root/.dotnet/tools"
